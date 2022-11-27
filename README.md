@@ -6,7 +6,7 @@ Ahh Welcome welcome
 Code DHT 22: Chỉ cần lấy ip của chip wifi
 Code RFID: Thay đổi ip local của server Backend vào URL
 
-##Thu mục Backend
+## Thư mục Backend
 Đổi serviceAccountKet.json
 
 và mở PS và chạy
@@ -22,7 +22,7 @@ nest start --watch
 ```
 Để chạy Server và mở tiếp Frontend
 
-##Thu mục Frontend
+## Thư mục Frontend
 Sửa IP Của NodeMCU đã liên kết với DHT22 trong file `tempandhumid.js` 
 Sửa IP thành Local IP của Server trong file `rfid.js` 
 
