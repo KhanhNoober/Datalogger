@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="div-header flex-container">
+        <h1 style="font-size: 50px; margin-right: 2rem;">RFID</h1>
+        <div class="sub-header flex-container">
+          <div style="font-size: 25px;">
+            Assignment 3 - Data Logger
+          </div>
+          <div>
+            <span id="date"></span>
+            <span id="humid"></span>
+            <span id="temp"></span>
+          </div>
+        </div>
+      </div>
+      <div class="div-body flex-container">
+        <div class="left flex-container">
+          <div>Quản Lý Điểm Danh</div>
+          <div>Quản Lý Thành Viên</div>
+          <div>Công Việc</div>
+        </div>
+        <div class="right flex-container">
+          <h2>Điểm Danh</h2>
+          <div id="member-list" class="member-list">
+            <div class="member-list-row" style="border-top: 1px solid var(--light-grey);">
+              <div>Họ và tên</div>
+              <div>Card ID</div>
+              <div>Thời Gian</div>
+              <div>Trạng Thái</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
