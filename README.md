@@ -35,6 +35,13 @@ npm i -g vite
 
 Sau đó gõ lệnh
 ```
+npm i
+```
+
+Và
+
+Rồi lệnh
+```
 vite -- --host
 ```
 
