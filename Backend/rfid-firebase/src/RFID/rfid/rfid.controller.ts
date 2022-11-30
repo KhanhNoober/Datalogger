@@ -9,6 +9,10 @@ export class RfidController {
     async getAllCard() {
         return this.rfidService.getAllRFID();
     }
+    @Get('/datalog')
+    async getAllLog() {
+        return this.rfidService.getAllLog();
+    }
 
     @Put('/:rfid')
     async updateCardByRFID(@Param('rfid') params) {
@@ -28,5 +32,9 @@ export class RfidController {
     @Sse('/realtime')
     async realtimeData() {
         return this.rfidService.realtimeData();
+    }
+    @Sse('/realtimeDatalog')
+    async realtimeDatalog() {
+        return this.rfidService.realtimeDatalog();
     }
 }

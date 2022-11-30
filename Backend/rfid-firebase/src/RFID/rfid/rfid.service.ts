@@ -7,10 +7,13 @@ import { Subject } from 'rxjs';
 export class RfidService {
     date = new Date()
     $rfid = new Subject();
-
+    $rfidDatalog = new Subject();
     constructor(@InjectFirebaseAdmin() private readonly firebase: FirebaseAdmin) {
         this.getAllLog();
-        //this.$rfid.subscribe((data: any) => this.addLog(data.message))
+        this.$rfid.subscribe(data => {
+            this.$rfidDatalog.next(data);
+            this.addLog(data)
+        })
     }
     
     async addLog(data: any) {
@@ -18,8 +21,19 @@ export class RfidService {
     }
 
     async getAllLog() {
-        let datalog = await this.firebase.db.collection('datalog').get();
-        datalog.forEach(doc => this.$rfid.next(doc.data())); 
+        // return await this.firebase.db.collection('datalog').get();
+        // datalog.forEach(doc => this.$rfid.next(doc.data()));
+        let data = await this.firebase.db.collection('datalog').get();
+        let datalogs = [];
+        if(data.empty) {
+            return "No datalog";
+        }
+        else {
+            data.forEach(doc => {
+                datalogs.push({id: doc.id, data: doc.data()})
+            })
+        }
+        return datalogs; 
     }
 
     async getAllRFID() {
@@ -45,7 +59,7 @@ export class RfidService {
         let rfids = [];
         data.forEach(doc => {
             const tempDoc = doc.data();
-            if(tempDoc.rfid == rfid) {
+            if (tempDoc.rfid == rfid) {
                 this.date = new Date();
                 let pushData = {
                     id: doc.id,
@@ -73,5 +87,8 @@ export class RfidService {
 
     async realtimeData() {
         return this.$rfid.asObservable();
+    }
+    async realtimeDatalog() {
+        return this.$rfidDatalog.asObservable();
     }
 }

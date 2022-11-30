@@ -1,11 +1,11 @@
 import './style.css'
 import { eventSource } from './tempandhumid.js'
-import { test, realTimeRFID } from './rfid.js'
+import { diemdanh, realTimeRFID } from './rfid.js'
 
 const membersList = document.getElementById('member-list')
 
 // Path: rfid.js
-test
+diemdanh
   .then(res => res.json())
   .then(data => {
     data.forEach(member => {

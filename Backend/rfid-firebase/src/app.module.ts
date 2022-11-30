@@ -3,13 +3,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RfidModule } from './RFID/rfid/rfid.module';
 import { FirebaseModule } from 'nestjs-firebase';
-
 @Module({
   imports: [
     FirebaseModule.forRoot({
       googleApplicationCredential: "serviceAccountKey.json",
     }),
-    RfidModule
+    RfidModule,
   ],
   controllers: [AppController],
   providers: [AppService],

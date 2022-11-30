@@ -32,6 +32,11 @@ h1 {
   margin: 0;
 }
 
+a {
+  color: var(--white);
+  text-decoration: none;
+}
+
 ::-webkit-scrollbar {
   width: 0;
 }
@@ -81,6 +86,11 @@ h1 {
 }
 
 .left > div {
+  font-size: 22px;
+  margin-top: 2rem;
+}
+
+.left > a {
   font-size: 22px;
   margin-top: 2rem;
 }

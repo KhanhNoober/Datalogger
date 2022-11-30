@@ -1,2 +1,2 @@
-export const eventSource = new EventSource('http://192.168.1.14/ssedata', { withCredentials: true }); 
+export const eventSource = new EventSource('http://10.104.20.239/ssedata'); 
 
