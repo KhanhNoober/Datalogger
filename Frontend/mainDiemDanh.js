@@ -13,10 +13,10 @@ diemdanh
     div.className = 'member-list-row'
     div.id = member.id
     div.innerHTML = `
-      <div>${member.data.name}</div>
-      <div>${member.data.rfid}</div>
-      <div>${member.data.lastCheck}</div>
-      <div>${member.data.status}</div>
+      <div style="color: var(--white)">${member.data.name}</div>
+      <div style="color: var(--white)">${member.data.rfid}</div>
+      <div style="color: var(--white)">${member.data.lastCheck}</div>
+      <div style="color: var(--white)">${member.data.status}</div>
     `
     membersList.appendChild(div)
   })
@@ -27,10 +27,10 @@ realTimeRFID.onmessage = e => {
     const data = JSON.parse(e.data)
     const member = document.getElementById(e.lastEventId)
     member.innerHTML = `
-      <div>${data.name}</div>
-      <div>${data.rfid}</div>
-      <div>${data.lastCheck}</div>
-      <div>${data.status}</div>
+      <div style="color: var(--white)">${data.name}</div>
+      <div style="color: var(--white)">${data.rfid}</div>
+      <div style="color: var(--white)">${data.lastCheck}</div>
+      <div style="color: var(--white)">${data.status}</div>
     `
 }
 
@@ -49,7 +49,9 @@ const date = document.getElementById('date')
 const temp = document.getElementById('temp')
 const humid = document.getElementById('humid')
 
-date.innerText = new Date().toLocaleString('en-US', {timeZone: "Asia/Ho_Chi_Minh"})
+setInterval(() => {
+  date.innerText = new Date().toLocaleString('en-US', {timeZone: "Asia/Ho_Chi_Minh"})
+}, 1000)
 
 eventSource.onmessage = e => {
   const data = e.data.split(',')
